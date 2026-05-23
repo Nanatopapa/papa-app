@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>パパ</title>
+
+<style>
+body {
+  font-family: sans-serif;
+  background: #f6efe3;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.section { display: none; }
+.section.active { display: block; }
+
+h1 {
+  font-size: 36px;
+  margin: 25px 0;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 26px;
+}
+
+.big-button, .small-button {
+  border: none;
+  border-radius: 18px;
+  margin: 10px auto;
+  padding: 20px;
+  font-size: 24px;
+  display: block;
+  width: 90%;
+  max-width: 500px;
+}
+
+.home1 { background: #ffd966; }
+.home2 { background: #9fc5e8; }
+.home3 { background: #f4cccc; }
+.back { background: #ddd; }
+
+.home-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 10px auto 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.book-button {
+  width: 45%;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  position: relative;
+}
+
+.book-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 8px;
+  background: #c89f6a;
+  border-radius: 4px;
+}
+
+.book-button img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 14px;
+  display: block;
+  background: white;
+}
+
+.book-button span {
+  display: block;
+  font-size: 17px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #5a4632;
+}
+
+.talk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.talk-button {
+  font-size: 14px;
+  padding: 14px 6px;
+  border: none;
+  border-radius: 16px;
+  background: white;
+  min-height: 78px;
+}
+
+.call-full-image {
+  width: 280px;
+  height: 560px;
+  object-fit: contain;
+  display: block;
+  margin: 20px auto;
+  border-radius: 24px;
+  background: black;
+}
+
+.video-player {
+  width: 280px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  margin: 20px auto;
+  background: black;
+}
+</style>
+</head>
+
+<body>
+
+<div id="home" class="section active">
+  <img id="home-photo" src="" alt="パパ" class="home-photo">
+  <h1>パパ</h1>
+
+  <button class="big-button home1" onclick="showSection('books')">📚 パパのほんだな</button>
+  <button class="big-button home2" onclick="showSection('talk')">🗣 パパあのね</button>
+  <button class="big-button home3" onclick="showSection('movie')">🎥 パパからななへ</button>
+</div>
+
+<div id="books" class="section">
+  <h1>📚 パパのほんだな</h1>
+
+ <div class="book-list">
+
+<button class="book-button" onclick="playAudio('book_001_kyouryu.m4a')">
+<img src="book_001_kyouryu.jpg" alt="きょうりゅうたちのあしもとで">
+<span>きょうりゅうたちのあしもとで</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_002_hatarakukuruma.m4a')">
+<img src="book_002_hatarakukuruma.jpg" alt="おはよう はたらくくるまたち">
+<span>おはよう はたらくくるまたち</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_003_daisuki.m4a')">
+<img src="book_003_daisuki.jpg" alt="だいすき ぎゅっぎゅっ">
+<span>だいすき ぎゅっぎゅっ</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_004_maigoninatta.m4a')">
+<img src="book_004_maigoninatta.jpg" alt="まいごになったきょうりゅうぼうや">
+<span>まいごになったきょうりゅうぼうや</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_005_kiminokotoga.m4a')">
+<img src="book_005_kiminokotoga.jpg" alt="きみのことがだいすき">
+<span>きみのことがだいすき</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_006_kurisumasu.m4a')">
+<img src="book_006_kurisumasu.jpg" alt="クリスマスえほん">
+<span>クリスマスえほん</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_007_dekirukana.m4a')">
+<img src="book_007_dekirukana.jpg" alt="できるかな？あたまからつまさきまで">
+<span>できるかな？</span>
+</button>
+
+<button class="book-button" onclick="playAudio('book_008_dekirukana.m4a')">
+<img src="book_008_dekirukana.jpg" alt="From Head to Toe">
+<span>From Head to Toe</span>
+</button>
+
+</div>
+
+
+  <button class="small-button" onclick="stopAudio()">⏸️ いったんとめる</button>
+  <button class="small-button back" onclick="showSection('home')">← もどる</button>
+</div>
+
+<div id="talk" class="section">
+  <h1>🗣 パパあのね</h1>
+
+  <h2>きもち</h2>
+  <div class="talk-grid">
+    <button class="talk-button" onclick="playAudio('msg_002_tanoshikatta.m4a')">😊<br>たのしかった</button>
+    <button class="talk-button" onclick="playAudio('msg_003_kanashikatta.m4a')">😭<br>かなしかった</button>
+    <button class="talk-button" onclick="playAudio('msg_004_iyadatta.m4a')">😡<br>いやだった</button>
+    <button class="talk-button" onclick="playAudio('msg_005_itakatta.m4a')">😖<br>いたかった</button>
+    <button class="talk-button" onclick="playAudio('msg_006_bikkurishita.m4a')">😳<br>びっくりした</button>
+    <button class="talk-button" onclick="playAudio('msg_007_samishii.m4a')">🥺<br>さみしい</button>
+    <button class="talk-button" onclick="playAudio('msg_008_ureshikatta.m4a')">🥰<br>うれしかった</button>
+    <button class="talk-button" onclick="playAudio('msg_009_okotteru.m4a')">😤<br>おこってる</button>
+    <button class="talk-button" onclick="playAudio('msg_010_naityatta.m4a')">😢<br>ないちゃった</button>
+    <button class="talk-button" onclick="playAudio('msg_011_sugokatta.m4a')">🤩<br>すごかった</button>
+    <button class="talk-button" onclick="playAudio('msg_012_kowakatta.m4a')">😰<br>こわかった</button>
+  </div>
+
+  <h2>せいかつ</h2>
+  <div class="talk-grid">
+    <button class="talk-button" onclick="playAudio('msg_013_ohayou.m4a')">🌞<br>おはよう</button>
+    <button class="talk-button" onclick="playAudio('msg_014_oyasumi.m4a')">🌙<br>おやすみ</button>
+    <button class="talk-button" onclick="playAudio('msg_015_okaeri.m4a')">🏠<br>ただいま</button>
+    <button class="talk-button" onclick="playAudio('msg_016_ittekimasu.m4a')">👋<br>いってきます</button>
+    <button class="talk-button" onclick="playAudio('msg_017_gohantabeta.m4a')">🍚<br>ごはん</button>
+    <button class="talk-button" onclick="playAudio('msg_018_unchideta.m4a')">💩<br>うんち</button>
+  </div>
+
+  <h2>ぱぱぁ〜</h2>
+  <div class="talk-grid">
+    <button class="talk-button" onclick="playAudio('msg_001_doushitano.m4a')">👂<br>きいて</button>
+    <button class="talk-button" onclick="playAudio('msg_019_gyuu.m4a')">🤗<br>ぎゅー</button>
+    <button class="talk-button" onclick="playAudio('msg_020_yoshiyoshi.m4a')">🫶<br>なでなで</button>
+    <button class="talk-button" onclick="playAudio('msg_021_gannbatta.m4a')">🥹<br>ほめて</button>
+    <button class="talk-button" onclick="playAudio('msg_022_omedetou.m4a')">🎉<br>おめでとう</button>
+    <button class="talk-button" onclick="playCallVideo()">📞<br>でんわ</button>
+  </div>
+
+  <button class="small-button" onclick="playAudio('msg_100_oshimai.m4a')">👋 今日はおしまい</button>
+  <button class="small-button" onclick="stopAudio()">⏸️ いったんとめる</button>
+  <button class="small-button back" onclick="showSection('home')">← もどる</button>
+</div>
+
+<div id="movie" class="section">
+  <h1>🎥 パパからななへ</h1>
+
+  <button class="small-button" onclick="openSecretVideo()">🎁 5/22のひみつ</button>
+
+  <div id="secret-message" style="margin-top:20px;"></div>
+
+  <button class="small-button back" onclick="showSection('home')">← もどる</button>
+</div>
+
+<div id="call" class="section">
+  <div id="call-area"></div>
+
+  <video id="call-video" class="video-player" controls playsinline style="display:none;">
+    <source src="call_001.mp4" type="video/mp4">
+  </video>
+
+  <button class="small-button back" onclick="closeCall()">← もどる</button>
+</div>
+
+<audio id="player"></audio>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+function playAudio(file) {
+  const player = document.getElementById('player');
+
+  if (player.src.includes(file)) {
+    player.play();
+  } else {
+    player.src = file;
+    player.play();
+  }
+}
+
+function stopAudio() {
+  const player = document.getElementById('player');
+  player.pause();
+}
+
+const homePhotos = [
+  "home_01.jpg",
+  "home_02.jpg",
+  "home_03.jpg",
+  "home_04.jpg"
+];
+
+const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
+document.getElementById("home-photo").src = randomPhoto;
+
+function openSecretVideo() {
+  const unlockDate = new Date("2026-05-22T00:00:00");
+  const now = new Date();
+  const area = document.getElementById("secret-message");
+
+  if (now < unlockDate) {
+    area.innerHTML = "<p style='font-size:24px;'>🤫 まだひみつだよ</p>";
+  } else {
+    area.innerHTML = `
+      <video class="video-player" controls playsinline>
+        <source src="movie_001_secret0522.mp4" type="video/mp4">
+      </video>
+    `;
+  }
+}
+
+let callTimeout = null;
+let callRing = null;
+
+function playCallVideo() {
+  const area = document.getElementById("call-area");
+  const video = document.getElementById("call-video");
+
+  area.innerHTML = `
+    <img src="call_screen.png" class="call-full-image">
+  `;
+
+  video.style.display = "none";
+  video.pause();
+  video.currentTime = 0;
+
+  showSection("call");
+
+  callRing = new Audio("call_ring.m4a");
+  callRing.volume = 0.10;
+  callRing.play();
+
+  callTimeout = setTimeout(() => {
+    if (callRing) {
+      callRing.pause();
+      callRing.currentTime = 0;
+      callRing = null;
+    }
+
+    area.innerHTML = "";
+
+    video.style.display = "block";
+    video.currentTime = 0;
+    video.play();
+  }, 5000);
+}
+
+function closeCall() {
+  if (callTimeout) {
+    clearTimeout(callTimeout);
+    callTimeout = null;
+  }
+
+  if (callRing) {
+    callRing.pause();
+    callRing.currentTime = 0;
+    callRing = null;
+  }
+
+  const video = document.getElementById("call-video");
+  video.pause();
+  video.currentTime = 0;
+  video.style.display = "none";
+
+  const area = document.getElementById("call-area");
+  area.innerHTML = "";
+
+  showSection('talk');
+}
+</script>
+
+</body>
+</html>
+
