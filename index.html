@@ -135,6 +135,17 @@ h2 {
   margin: 20px auto;
   background: black;
 }
+
+.book-controls {
+  margin-top: 10px;
+}
+
+.book-controls .small-button {
+  font-size: 16px;
+  padding: 12px;
+  margin: 6px auto;
+}
+
 </style>
 </head>
 
@@ -154,42 +165,42 @@ h2 {
 
  <div class="book-list">
 
-<button class="book-button" onclick="playAudio('book_001_kyouryu.m4a')">
+<button class="book-button" onclick="playAudio('book_001_kyouryu.m4a', this)">
 <img src="book_001_kyouryu.jpg" alt="きょうりゅうたちのあしもとで">
 <span>きょうりゅうたちのあしもとで</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_002_hatarakukuruma.m4a')">
+<button class="book-button" onclick="playAudio('book_002_hatarakukuruma.m4a', this)">
 <img src="book_002_hatarakukuruma.jpg" alt="おはよう はたらくくるまたち">
 <span>おはよう はたらくくるまたち</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_003_daisuki.m4a')">
+<button class="book-button" onclick="playAudio('book_003_daisuki.m4a', this)">
 <img src="book_003_daisuki.jpg" alt="だいすき ぎゅっぎゅっ">
 <span>だいすき ぎゅっぎゅっ</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_004_maigoninatta.m4a')">
+<button class="book-button" onclick="playAudio('book_004_maigoninatta.m4a', this)">
 <img src="book_004_maigoninatta.jpg" alt="まいごになったきょうりゅうぼうや">
 <span>まいごになったきょうりゅうぼうや</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_005_kiminokotoga.m4a')">
+<button class="book-button" onclick="playAudio('book_005_kiminokotoga.m4a', this)">
 <img src="book_005_kiminokotoga.jpg" alt="きみのことがだいすき">
 <span>きみのことがだいすき</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_006_kurisumasu.m4a')">
+<button class="book-button" onclick="playAudio('book_006_kurisumasu.m4a', this)">
 <img src="book_006_kurisumasu.jpg" alt="クリスマスえほん">
 <span>クリスマスえほん</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_007_dekirukana.m4a')">
+<button class="book-button" onclick="playAudio('book_007_dekirukana.m4a', this)">
 <img src="book_007_dekirukana.jpg" alt="できるかな？あたまからつまさきまで">
 <span>できるかな？</span>
 </button>
 
-<button class="book-button" onclick="playAudio('book_008_dekirukana.m4a')">
+<button class="book-button" onclick="playAudio('book_008_dekirukana.m4a', this)">
 <img src="book_008_dekirukana.jpg" alt="From Head to Toe">
 <span>From Head to Toe</span>
 </button>
@@ -197,7 +208,7 @@ h2 {
 </div>
 
 
-  <button class="small-button" onclick="stopAudio()">⏸️ いったんとめる</button>
+ 
   <button class="small-button back" onclick="showSection('home')">← もどる</button>
 </div>
 
@@ -274,13 +285,41 @@ function showSection(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function playAudio(file) {
+let currentFile = "";
+
+function playAudio(file, button) {
   const player = document.getElementById('player');
 
-  if (player.src.includes(file)) {
-    player.play();
-  } else {
+  currentFile = file;
+
+  if (!player.src.includes(file)) {
     player.src = file;
+  }
+
+  player.play();
+
+  document.querySelectorAll('.book-controls').forEach(el => {
+    el.remove();
+  });
+
+  const controls = document.createElement('div');
+  controls.className = 'book-controls';
+  controls.innerHTML = `
+    <button class="small-button" onclick="pauseCurrentAudio()">⏸️ とめる</button>
+    <button class="small-button" onclick="resumeCurrentAudio()">▶️ さいせい</button>
+  `;
+
+  button.parentElement.appendChild(controls);
+}
+
+function pauseCurrentAudio() {
+  const player = document.getElementById('player');
+  player.pause();
+}
+
+function resumeCurrentAudio() {
+  const player = document.getElementById('player');
+  if (currentFile) {
     player.play();
   }
 }
