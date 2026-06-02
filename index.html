@@ -149,6 +149,20 @@ h2 {
   width: 50%;
 }
 
+.kagaku-controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.kagaku-controls .small-button {
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+  width: 50%;
+}
+
+
 </style>
 </head>
 
@@ -214,7 +228,7 @@ h2 {
     <button class="talk-button" onclick="playKagaku('book_014_25-18.m4a')">18</button>
   </div>
 
-  <div class="book-controls">
+  <div class="kagaku-controls">
     <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
     <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
   </div>
