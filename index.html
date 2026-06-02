@@ -166,54 +166,63 @@ h2 {
 <div id="books" class="section">
   <h1>📚 パパのほんだな</h1>
 
- <div class="book-list">
+<div class="book-list">
+  <button class="book-button" onclick="playBook('book_001_kyouryu.m4a', this)"><img src="book_001_kyouryu.jpg"><span>きょうりゅうたちのあしもとで</span></button>
+  <button class="book-button" onclick="playBook('book_002_hatarakukuruma.m4a', this)"><img src="book_002_hatarakukuruma.jpg"><span>おはよう はたらくくるまたち</span></button>
+  <button class="book-button" onclick="playBook('book_003_daisuki.m4a', this)"><img src="book_003_daisuki.jpg"><span>だいすき ぎゅっぎゅっ</span></button>
+  <button class="book-button" onclick="playBook('book_004_maigoninatta.m4a', this)"><img src="book_004_maigoninatta.jpg"><span>まいごになったきょうりゅうぼうや</span></button>
+  <button class="book-button" onclick="playBook('book_005_kiminokotoga.m4a', this)"><img src="book_005_kiminokotoga.jpg"><span>きみのことがだいすき</span></button>
+  <button class="book-button" onclick="playBook('book_006_kurisumasu.m4a', this)"><img src="book_006_kurisumasu.jpg"><span>クリスマスえほん</span></button>
+  <button class="book-button" onclick="playBook('book_007_dekirukana.m4a', this)"><img src="book_007_dekirukana.jpg"><span>できるかな？</span></button>
+  <button class="book-button" onclick="playBook('book_008_dekirukana.m4a', this)"><img src="book_008_dekirukana.jpg"><span>From Head to Toe</span></button>
 
-<button class="book-button" onclick="playAudio('book_001_kyouryu.m4a', this)">
-<img src="book_001_kyouryu.jpg" alt="きょうりゅうたちのあしもとで">
-<span>きょうりゅうたちのあしもとで</span>
-</button>
+  <button class="book-button" onclick="playBook('book_009_hugtime.m4a', this)"><img src="book_009_hugtime.jpg"><span>ハグタイム</span></button>
+  <button class="book-button" onclick="playBook('book_010_okurimono.m4a', this)"><img src="book_010_okurimono.jpg"><span>おくりものはナンニモナイ</span></button>
+  <button class="book-button" onclick="playBook('book_011_framy.m4a', this)"><img src="book_011_framy.jpg"><span>フレーミーとのみのノミー</span></button>
+  <button class="book-button" onclick="playBook('book_012_iroiro.m4a', this)"><img src="book_012_iroiro.jpg"><span>いろいろ1ねん</span></button>
+  <button class="book-button" onclick="playBook('book_013_omaeumasoudana.m4a', this)"><img src="book_013_omaeumasoudana.jpg"><span>おまえうまそうだな</span></button>
 
-<button class="book-button" onclick="playAudio('book_002_hatarakukuruma.m4a', this)">
-<img src="book_002_hatarakukuruma.jpg" alt="おはよう はたらくくるまたち">
-<span>おはよう はたらくくるまたち</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_003_daisuki.m4a', this)">
-<img src="book_003_daisuki.jpg" alt="だいすき ぎゅっぎゅっ">
-<span>だいすき ぎゅっぎゅっ</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_004_maigoninatta.m4a', this)">
-<img src="book_004_maigoninatta.jpg" alt="まいごになったきょうりゅうぼうや">
-<span>まいごになったきょうりゅうぼうや</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_005_kiminokotoga.m4a', this)">
-<img src="book_005_kiminokotoga.jpg" alt="きみのことがだいすき">
-<span>きみのことがだいすき</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_006_kurisumasu.m4a', this)">
-<img src="book_006_kurisumasu.jpg" alt="クリスマスえほん">
-<span>クリスマスえほん</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_007_dekirukana.m4a', this)">
-<img src="book_007_dekirukana.jpg" alt="できるかな？あたまからつまさきまで">
-<span>できるかな？</span>
-</button>
-
-<button class="book-button" onclick="playAudio('book_008_dekirukana.m4a', this)">
-<img src="book_008_dekirukana.jpg" alt="From Head to Toe">
-<span>From Head to Toe</span>
-</button>
-
+  <button class="book-button" onclick="showSection('kagaku')"><img src="book_014_kagaku25.jpg"><span>かがくのお話25</span></button>
 </div>
 
 
  
   <button class="small-button back" onclick="showSection('home')">← もどる</button>
 </div>
+
+<div id="kagaku" class="section">
+  <h1>🔬 かがくのお話25</h1>
+
+  <div class="talk-grid">
+    <button class="talk-button" onclick="playKagaku('book_014_25-1.m4a')">1</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-2.m4a')">2</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-3.m4a')">3</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-4.m4a')">4</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-5.m4a')">5</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-6.m4a')">6</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-7.m4a')">7</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-8.m4a')">8</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-9.m4a')">9</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-10.m4a')">10</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-11.m4a')">11</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-12.m4a')">12</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-13.m4a')">13</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-14.m4a')">14</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-15.m4a')">15</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-16.m4a')">16</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-17.m4a')">17</button>
+    <button class="talk-button" onclick="playKagaku('book_014_25-18.m4a')">18</button>
+  </div>
+
+  <div class="book-controls">
+    <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
+    <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
+  </div>
+
+  <button class="small-button back" onclick="showSection('books')">← もどる</button>
+</div>
+
+
 
 <div id="talk" class="section">
   <h1>🗣 パパあのね</h1>
@@ -416,6 +425,35 @@ function closeCall() {
 
   showSection('talk');
 }
+
+function playBook(file, button) {
+  playAudio(file);
+
+  document.querySelectorAll('.book-controls').forEach(el => el.remove());
+
+  const controls = document.createElement('div');
+  controls.className = 'book-controls';
+  controls.innerHTML = `
+    <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
+    <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
+  `;
+
+  button.appendChild(controls);
+}
+
+function playKagaku(file) {
+  playAudio(file);
+}
+
+function pauseCurrentAudio() {
+  document.getElementById('player').pause();
+}
+
+function resumeCurrentAudio() {
+  document.getElementById('player').play();
+}
+
+
 </script>
 
 </body>
