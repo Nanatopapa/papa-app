@@ -313,9 +313,8 @@ function showSection(id) {
 
 let currentFile = "";
 
-function playAudio(file, button) {
+function playAudio(file) {
   const player = document.getElementById('player');
-
   currentFile = file;
 
   if (!player.src.includes(file)) {
@@ -323,19 +322,25 @@ function playAudio(file, button) {
   }
 
   player.play();
+}
 
-  document.querySelectorAll('.book-controls').forEach(el => {
-    el.remove();
-  });
+function playBook(file, button) {
+  playAudio(file);
+
+  document.querySelectorAll('.book-controls').forEach(el => el.remove());
 
   const controls = document.createElement('div');
   controls.className = 'book-controls';
   controls.innerHTML = `
-  <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
-  <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
-`;
+    <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
+    <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
+  `;
 
   button.appendChild(controls);
+}
+
+function playKagaku(file) {
+  playAudio(file);
 }
 
 function pauseCurrentAudio() {
@@ -345,9 +350,7 @@ function pauseCurrentAudio() {
 
 function resumeCurrentAudio() {
   const player = document.getElementById('player');
-  if (currentFile) {
-    player.play();
-  }
+  player.play();
 }
 
 function stopAudio() {
@@ -439,35 +442,6 @@ function closeCall() {
 
   showSection('talk');
 }
-
-function playBook(file, button) {
-  playAudio(file);
-
-  document.querySelectorAll('.book-controls').forEach(el => el.remove());
-
-  const controls = document.createElement('div');
-  controls.className = 'book-controls';
-  controls.innerHTML = `
-    <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
-    <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
-  `;
-
-  button.appendChild(controls);
-}
-
-function playKagaku(file) {
-  playAudio(file);
-}
-
-function pauseCurrentAudio() {
-  document.getElementById('player').pause();
-}
-
-function resumeCurrentAudio() {
-  document.getElementById('player').play();
-}
-
-
 </script>
 
 </body>
