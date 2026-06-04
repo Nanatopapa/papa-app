@@ -302,7 +302,23 @@ h2 {
 <div id="movie" class="section">
   <h1>🎥 パパからななへ</h1>
 
-  <button class="small-button" onclick="openSecretVideo()">🎁 5/22のひみつ</button>
+<button class="small-button"
+onclick="window.open('https://drive.google.com/file/d/1Od0qOwQHKTXVyQEV6vN_6GWUPlG8mWw-/view?usp=drive_link')">
+🎂 4さい
+</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_05.mp4')">🎂 5さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_06.mp4')">🎂 6さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_07.mp4')">🎂 7さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_08.mp4')">🎂 8さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_09.mp4')">🎂 9さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_10.mp4')">🎂 10さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_11.mp4')">🎂 11さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_12.mp4')">🎂 12さい</button>
+
+<div id="birthday-video-area"></div>
+
+<button class="small-button back" onclick="showSection('home')">← もどる</button>
+
 
   <div id="secret-message" style="margin-top:20px;"></div>
 
@@ -466,6 +482,17 @@ function closeCall() {
 
   showSection('talk');
 }
+
+function playBirthdayVideo(file) {
+  const area = document.getElementById("birthday-video-area");
+
+  area.innerHTML = `
+    <video class="video-player" controls playsinline>
+      <source src="${file}" type="video/mp4">
+    </video>
+  `;
+}
+
 </script>
 
 </body>
