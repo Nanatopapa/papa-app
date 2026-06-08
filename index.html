@@ -326,32 +326,14 @@ style="width:85%;max-width:350px;border-radius:20px;">
 
 <h2>🦖 きょうりゅうカルタ</h2>
 
-<div id="karuta-remaining">
-あと 0 まい
+<div id="karuta-remaining" style="font-size:24px; margin:20px;">
+  カルタをはじめてね
 </div>
 
-<button class="small-button">
-🟢 カルタをはじめる
-</button>
-
-<button class="small-button">
-🔁 もういっかいよむ
-</button>
-
-<button class="small-button">
-➡️ つぎのふだをよむ
-</button>
-
-<button class="small-button">
-🔄 はじめからやる
-</button>
-
-<button class="small-button back"
-onclick="showSection('home')">
-← もどる
-</button>
-
-</div>
+<button class="small-button" onclick="startKaruta()">🟢 カルタをはじめる</button>
+<button class="small-button" onclick="repeatKaruta()">🔁 もういっかいよむ</button>
+<button class="small-button" onclick="nextKaruta()">➡️ つぎのふだをよむ</button>
+<button class="small-button" onclick="resetKaruta()">🔄 はじめからやる</button>
 
 
 <div id="call" class="section">
@@ -495,6 +477,93 @@ function closeCall() {
 
   showSection('talk');
 }
+
+const karutaCards = [
+  "a.m4a","i.m4a","u.m4a","e.m4a","o.m4a",
+  "ka.m4a","ki.m4a","ku.m4a","ke.m4a","ko.m4a",
+  "sa.m4a","shi.m4a","su.m4a","se.m4a","so.m4a",
+  "ta.m4a","chi.m4a","tsu.m4a","te.m4a","to.m4a",
+  "na.m4a","ni.m4a","nu.m4a","ne.m4a","no.m4a",
+  "ha.m4a","hi.m4a","fu.m4a","he.m4a","ho.m4a",
+  "ma.m4a","mi.m4a","mu.m4a","me.m4a","mo.m4a",
+  "ya.m4a","yu.m4a","yo.m4a",
+  "ra.m4a","ri.m4a","ru.m4a","re.m4a","ro.m4a",
+  "wa.m4a","wo.m4a","n.m4a"
+];
+
+let karutaDeck = [];
+let currentKarutaCard = "";
+
+function shuffleArray(array) {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function updateKarutaRemaining(text) {
+  document.getElementById("karuta-remaining").innerText = text;
+}
+
+function playSound(file) {
+  const player = document.getElementById("player");
+  player.src = file;
+  player.play();
+}
+
+function startKaruta() {
+  karutaDeck = shuffleArray(karutaCards);
+  currentKarutaCard = "";
+
+  updateKarutaRemaining(`あと ${karutaDeck.length} まい`);
+
+  playSound("karuta_start.m4a");
+
+  setTimeout(() => {
+    drawKarutaCard(false);
+  }, 2500);
+}
+
+function drawKarutaCard(withNextVoice) {
+  if (karutaDeck.length === 0) {
+    currentKarutaCard = "";
+    updateKarutaRemaining("ぜんぶできたね！");
+    playSound("karuta_finish.m4a");
+    return;
+  }
+
+  currentKarutaCard = karutaDeck.shift();
+  updateKarutaRemaining(`あと ${karutaDeck.length} まい`);
+
+  if (withNextVoice) {
+    playSound("karuta_next.m4a");
+    setTimeout(() => {
+      playSound(currentKarutaCard);
+    }, 1200);
+  } else {
+    playSound(currentKarutaCard);
+  }
+}
+
+function nextKaruta() {
+  drawKarutaCard(true);
+}
+
+function repeatKaruta() {
+  if (currentKarutaCard) {
+    playSound(currentKarutaCard);
+  }
+}
+
+function resetKaruta() {
+  karutaDeck = [];
+  currentKarutaCard = "";
+  updateKarutaRemaining("カルタをはじめてね");
+  playSound("karuta_finish.m4a");
+}
+
 
 </script>
 
