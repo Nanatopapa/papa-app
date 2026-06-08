@@ -523,7 +523,7 @@ function startKaruta() {
 
   setTimeout(() => {
     drawKarutaCard(false);
-  }, 2500);
+  }, 5000);
 }
 
 function drawKarutaCard(withNextVoice) {
@@ -541,7 +541,7 @@ function drawKarutaCard(withNextVoice) {
     playSound("karuta_next.m4a");
     setTimeout(() => {
       playSound(currentKarutaCard);
-    }, 1200);
+    }, 3000);
   } else {
     playSound(currentKarutaCard);
   }
