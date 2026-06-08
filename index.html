@@ -326,16 +326,13 @@ style="width:85%;max-width:350px;border-radius:20px;">
 
 <h2>🦖 きょうりゅうカルタ</h2>
 
-<div id="karuta-remaining" style="font-size:24px; margin:20px;">
-  カルタをはじめてね
+<button id="karuta-start-button" class="small-button" onclick="startKaruta()">🟢 カルタをはじめる</button>
+
+<div id="karuta-play-buttons" style="display:none;">
+  <button class="small-button" onclick="repeatKaruta()">🔁 もういっかいよむ</button>
+  <button class="small-button" onclick="nextKaruta()">➡️ つぎのふだをよむ</button>
+  <button class="small-button" onclick="resetKaruta()">🔄 はじめからやる</button>
 </div>
-
-<button class="small-button" onclick="startKaruta()">🟢 カルタをはじめる</button>
-<button class="small-button" onclick="repeatKaruta()">🔁 もういっかいよむ</button>
-<button class="small-button" onclick="nextKaruta()">➡️ つぎのふだをよむ</button>
-<button class="small-button" onclick="resetKaruta()">🔄 はじめからやる</button>
-
-
 <div id="call" class="section">
   <div id="call-area"></div>
 
@@ -511,6 +508,16 @@ function updateKarutaRemaining(text) {
   document.getElementById("karuta-remaining").innerText = text;
 }
 
+function showKarutaPlayingButtons() {
+  document.getElementById("karuta-start-button").style.display = "none";
+  document.getElementById("karuta-play-buttons").style.display = "block";
+}
+
+function showKarutaStartButton() {
+  document.getElementById("karuta-start-button").style.display = "block";
+  document.getElementById("karuta-play-buttons").style.display = "none";
+}
+
 function playSound(file) {
   const player = document.getElementById("player");
   player.src = file;
@@ -518,13 +525,13 @@ function playSound(file) {
 }
 
 function startKaruta() {
-
   karutaStarted = true;
   karutaFinished = false;
 
   karutaDeck = shuffleArray(karutaCards);
   currentKarutaCard = "";
 
+  showKarutaPlayingButtons();
   updateKarutaRemaining(`あと ${karutaDeck.length} まい`);
 
   playSound("karuta_start.m4a");
@@ -535,14 +542,10 @@ function startKaruta() {
 }
 
 function drawKarutaCard(withNextVoice) {
-
   if (karutaDeck.length === 0) {
-
     karutaFinished = true;
     currentKarutaCard = "";
-
     updateKarutaRemaining("🎉 おしまい！");
-
     return;
   }
 
@@ -551,33 +554,25 @@ function drawKarutaCard(withNextVoice) {
   updateKarutaRemaining(`あと ${karutaDeck.length} まい`);
 
   if (withNextVoice) {
-
     playSound("karuta_next.m4a");
 
     setTimeout(() => {
       playSound(currentKarutaCard);
     }, 3000);
-
   } else {
-
     playSound(currentKarutaCard);
-
   }
 }
 
 function nextKaruta() {
-
   if (!karutaStarted) {
     updateKarutaRemaining("カルタをはじめてね");
     return;
   }
 
   if (karutaFinished) {
-
     playSound("karuta_finish.m4a");
-
     updateKarutaRemaining("🦖 またあそぼうね！");
-
     return;
   }
 
@@ -585,7 +580,6 @@ function nextKaruta() {
 }
 
 function repeatKaruta() {
-
   if (!karutaStarted || !currentKarutaCard) {
     updateKarutaRemaining("まだ よんでないよ");
     return;
@@ -595,6 +589,9 @@ function repeatKaruta() {
 }
 
 function resetKaruta() {
+  if (!confirm("とったふだを もどしてね！\nカルタを はじめから やる？")) {
+    return;
+  }
 
   karutaStarted = false;
   karutaFinished = false;
@@ -603,7 +600,9 @@ function resetKaruta() {
   currentKarutaCard = "";
 
   updateKarutaRemaining("カルタをはじめてね");
+  showKarutaStartButton();
 }
+
 
 </script>
 
