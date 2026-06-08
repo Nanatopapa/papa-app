@@ -302,17 +302,16 @@ h2 {
 <div id="movie" class="section">
   <h1>🎥 パパからななへ</h1>
 
-<button class="small-button" onclick="playBirthdayVideo('birthday_04.mp4')">🎂 4さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_05.mp4')">🎂 5さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_06.mp4')">🎂 6さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_07.mp4')">🎂 7さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_08.mp4')">🎂 8さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_09.mp4')">🎂 9さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_10.mp4')">🎂 10さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_11.mp4')">🎂 11さい</button>
-<button class="small-button" onclick="playBirthdayVideo('birthday_12.mp4')">🎂 12さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_04.mp4',this)">🎂 4さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_05.mp4',this)">🎂 5さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_06.mp4',this)">🎂 6さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_07.mp4',this)">🎂 7さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_08.mp4',this)">🎂 8さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_09.mp4',this)">🎂 9さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_10.mp4',this)">🎂 10さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_11.mp4',this)">🎂 11さい</button>
+<button class="small-button" onclick="playBirthdayVideo('birthday_12.mp4',this)">🎂 12さい</button>
 
-<div id="birthday-video-area"></div>
 
 <button class="small-button back" onclick="showSection('home')">← もどる</button>
 
@@ -459,14 +458,21 @@ function closeCall() {
   showSection('talk');
 }
 
-function playBirthdayVideo(file) {
-  const area = document.getElementById("birthday-video-area");
+function playBirthdayVideo(file, button) {
+  document.querySelectorAll('.birthday-video-area').forEach(el => {
+    el.remove();
+  });
+
+  const area = document.createElement('div');
+  area.className = 'birthday-video-area';
 
   area.innerHTML = `
     <video class="video-player" controls playsinline>
       <source src="${file}" type="video/mp4">
     </video>
   `;
+
+  button.insertAdjacentElement('afterend', area);
 }
 
 </script>
