@@ -317,11 +317,6 @@ h2 {
 <button class="small-button back" onclick="showSection('home')">← もどる</button>
 
 
-  <div id="secret-message" style="margin-top:20px;"></div>
-
-  <button class="small-button back" onclick="showSection('home')">← もどる</button>
-</div>
-
 <div id="call" class="section">
   <div id="call-area"></div>
 
@@ -404,22 +399,6 @@ const homePhotos = [
 
 const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
 document.getElementById("home-photo").src = randomPhoto;
-
-function openSecretVideo() {
-  const unlockDate = new Date("2026-05-22T00:00:00");
-  const now = new Date();
-  const area = document.getElementById("secret-message");
-
-  if (now < unlockDate) {
-    area.innerHTML = "<p style='font-size:24px;'>🤫 まだひみつだよ</p>";
-  } else {
-    area.innerHTML = `
-      <video class="video-player" controls playsinline>
-        <source src="movie_001_secret0522.mp4" type="video/mp4">
-      </video>
-    `;
-  }
-}
 
 let callTimeout = null;
 let callRing = null;
