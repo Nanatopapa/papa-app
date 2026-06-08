@@ -326,13 +326,23 @@ style="width:85%;max-width:350px;border-radius:20px;">
 
 <h2>🦖 きょうりゅうカルタ</h2>
 
-<button id="karuta-start-button" class="small-button" onclick="startKaruta()">🟢 カルタをはじめる</button>
+<div id="karuta-remaining" style="font-size:24px; margin:20px;">
+  カルタをはじめてね
+</div>
 
 <div id="karuta-play-buttons" style="display:none;">
   <button class="small-button" onclick="repeatKaruta()">🔁 もういっかいよむ</button>
   <button class="small-button" onclick="nextKaruta()">➡️ つぎのふだをよむ</button>
   <button class="small-button" onclick="resetKaruta()">🔄 はじめからやる</button>
 </div>
+
+<button class="small-button back" onclick="showSection('home')">
+← もどる
+</button>
+
+</div>
+
+<div id="call" class="section">
 <div id="call" class="section">
   <div id="call-area"></div>
 
