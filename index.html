@@ -563,7 +563,7 @@ function drawKarutaCard(withNextVoice) {
 
   currentKarutaCard = karutaDeck.shift();
 
-  updateKarutaRemaining(`あと ${karutaDeck.length} まい`);
+  updateKarutaRemaining(`あと ${karutaDeck.length + 1} まい`);
 
   if (withNextVoice) {
     playSound("karuta_next.m4a");
