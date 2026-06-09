@@ -353,7 +353,7 @@ h2 {
 
 <button class="kagaku-card" onclick="playKagaku('book_014_25-20.m4a',this)">
 <img src="kagaku_20.jpg">
-<span>タンポポのぼうや</span>
+<span>タンポポのポポちゃん</span>
 </button>
 
 <button class="kagaku-card" onclick="playKagaku('book_014_25-21.m4a',this)">
@@ -436,9 +436,9 @@ h2 {
 <div id="movie" class="section">
   <h1>🎥 パパからななへ</h1>
 
-  <p style="font-size:24px; margin:40px 20px;">
-    🔒 まだひみつだよ
-  </p>
+  <div id="movie-buttons"></div>
+
+  <div id="birthday-video-area"></div>
 
   <button class="small-button back" onclick="showSection('home')">
     ← もどる
@@ -561,6 +561,9 @@ const homePhotos = [
 
 const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
 document.getElementById("home-photo").src = randomPhoto;
+
+loadBirthdayButtons();
+
 
 let callTimeout = null;
 let callRing = null;
@@ -749,6 +752,62 @@ function resetKaruta() {
   showKarutaStartButton();
 }
 
+const birthdayVideos = [
+  { age: 4, unlock: "2026-07-27", file: "birthday_04.mp4" },
+  { age: 5, unlock: "2027-07-27", file: "birthday_05.mp4" },
+  { age: 6, unlock: "2028-07-27", file: "birthday_06.mp4" },
+  { age: 7, unlock: "2029-07-27", file: "birthday_07.mp4" },
+  { age: 8, unlock: "2030-07-27", file: "birthday_08.mp4" },
+  { age: 9, unlock: "2031-07-27", file: "birthday_09.mp4" },
+  { age: 10, unlock: "2032-07-27", file: "birthday_10.mp4" },
+  { age: 11, unlock: "2033-07-27", file: "birthday_11.mp4" },
+  { age: 12, unlock: "2034-07-27", file: "birthday_12.mp4" }
+];
+
+function loadBirthdayButtons() {
+  const container = document.getElementById("movie-buttons");
+  const today = new Date();
+  let html = "";
+
+  birthdayVideos.forEach(video => {
+    const unlockDate = new Date(video.unlock + "T00:00:00");
+
+    if (today >= unlockDate) {
+      html += `
+        <button class="small-button" onclick="playBirthdayVideo('${video.file}', this)">
+          🎂 ${video.age}さい
+        </button>
+      `;
+    }
+  });
+
+  if (html === "") {
+    html = `
+      <p style="font-size:24px; margin:40px 20px;">
+        🎂 まだひみつだよ
+      </p>
+    `;
+  }
+
+  container.innerHTML = html;
+}
+
+function playBirthdayVideo(file, button) {
+  document.querySelectorAll('.birthday-video-area').forEach(el => {
+    el.remove();
+  });
+
+  const area = document.createElement('div');
+  area.className = 'birthday-video-area';
+
+  area.innerHTML = `
+    <video class="video-player" controls playsinline>
+      <source src="${file}" type="video/mp4">
+    </video>
+  `;
+
+  button.insertAdjacentElement('afterend', area);
+}
 
 </script>
 
