@@ -155,14 +155,14 @@ h2 {
 }
 
 .kagaku-controls {
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
-  gap: 8px;
+  gap: 4px;
 }
 
 .kagaku-controls .small-button {
-  font-size: 24px;
-  padding: 10px;
+  font-size: 14px;
+  padding: 6px;
   margin: 0;
   width: 50%;
 }
@@ -170,6 +170,35 @@ h2 {
 .playing {
   background: #fff3b0 !important;
   box-shadow: 0 0 0 4px #ffcc33 inset;
+}
+.kagaku-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.kagaku-card {
+  background: white;
+  border: none;
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.kagaku-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.kagaku-card span {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 6px;
+  color: #333;
 }
 
 
@@ -224,34 +253,135 @@ h2 {
 <div id="kagaku" class="section">
   <h1>🔬 かがくのお話25</h1>
 
-  <div class="talk-grid">
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-1.m4a',this)">🌱1</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-2.m4a',this)">🐞2</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-3.m4a',this)">🍎3</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-4.m4a',this)">🌱4</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-5.m4a',this)">🐦‍⬛5</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-6.m4a',this)">🏘️6</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-7.m4a',this)">🐦‍⬛7</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-8.m4a',this)">🧍8</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-9.m4a',this)">🐦‍⬛9</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-10.m4a',this)">🐞10</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-11.m4a',this)">☀️11</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-12.m4a',this)">🐦‍⬛12</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-13.m4a',this)">🐞13</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-14.m4a',this)">🏘️14</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-15.m4a',this)">☀️15</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-16.m4a',this)">🍎16</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-17.m4a',this)">🏘️17</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-18.m4a',this)">🌏18</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-19.m4a',this)">🐞19</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-20.m4a',this)">🌱20</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-21.m4a',this)">☀️21</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-22.m4a',this)">🍎22</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-23.m4a',this)">🏘️23</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-24.m4a',this)">🐦‍⬛24</button>
-    <button class="talk-button kagaku-button" onclick="playKagaku('book_014_25-25.m4a',this)">🧍25</button>
+<div class="kagaku-grid">
 
-  </div>
+<button class="kagaku-card" onclick="playKagaku('book_014_25-1.m4a',this)">
+<img src="kagaku_01.jpg">
+<span>どんぐりくらべ</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-2.m4a',this)">
+<img src="kagaku_02.jpg">
+<span>ちをもらいにきましたよ♥</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-3.m4a',this)">
+<img src="kagaku_03.jpg">
+<span>なっとうねばえもん</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-4.m4a',this)">
+<img src="kagaku_04.jpg">
+<span>おまめをたくさんたべたいな</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-5.m4a',this)">
+<img src="kagaku_05.jpg">
+<span>ふしぎなきょうりゅうはくぶつかん</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-6.m4a',this)">
+<img src="kagaku_06.jpg">
+<span>うんちくんのぼうけん</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-7.m4a',this)">
+<img src="kagaku_07.jpg">
+<span>だれかさんのしっぽみーつけた</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-8.m4a',this)">
+<img src="kagaku_08.jpg">
+<span>なみだせんしマモルンダー</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-9.m4a',this)">
+<img src="kagaku_09.jpg">
+<span>きんぎょとなかよくなりたいな</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-10.m4a',this)">
+<img src="kagaku_10.jpg">
+<span>テントウムシななほしぐみ</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-11.m4a',this)">
+<img src="kagaku_11.jpg">
+<span>そらにおわりはあるのかな？</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-12.m4a',this)">
+<img src="kagaku_12.jpg">
+<span>おいらはねこにんじゃ</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-13.m4a',this)">
+<img src="kagaku_13.jpg">
+<span>へんしんするよ！アゲハチョウ</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-14.m4a',this)">
+<img src="kagaku_14.jpg">
+<span>バイキンだんがやってくる！</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-15.m4a',this)">
+<img src="kagaku_15.jpg">
+<span>おほしさまどこへいったの？</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-16.m4a',this)">
+<img src="kagaku_16.jpg">
+<span>くだもののおうさまどっち？</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-17.m4a',this)">
+<img src="kagaku_17.jpg">
+<span>ビデオつうわひみつのぼうけん</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-18.m4a',this)">
+<img src="kagaku_18.jpg">
+<span>どんどんほれほれちかたんけん</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-19.m4a',this)">
+<img src="kagaku_19.jpg">
+<span>セミのがっしょうたいかい</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-20.m4a',this)">
+<img src="kagaku_20.jpg">
+<span>タンポポのぼうや</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-21.m4a',this)">
+<img src="kagaku_21.jpg">
+<span>おつきさまがついてくる</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-22.m4a',this)">
+<img src="kagaku_22.jpg">
+<span>そばとうどんではっけよい！</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-23.m4a',this)">
+<img src="kagaku_23.jpg">
+<span>カミナリさまがやってきた！</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-24.m4a',this)">
+<img src="kagaku_24.jpg">
+<span>ぼくもそらをとびたいな</span>
+</button>
+
+<button class="kagaku-card" onclick="playKagaku('book_014_25-25.m4a',this)">
+<img src="kagaku_25.jpg">
+<span>ようこそあかちゃん</span>
+</button>
+
+</div>
+
 
   <div class="kagaku-controls">
     <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
@@ -394,13 +524,20 @@ function playBook(file, button) {
 }
 
 function playKagaku(file, button) {
+
   playAudio(file);
 
-  document.querySelectorAll('.kagaku-button').forEach(btn => {
-    btn.classList.remove('playing');
-  });
+  document.querySelectorAll('.kagaku-controls').forEach(el => el.remove());
 
-  button.classList.add('playing');
+  const controls = document.createElement('div');
+  controls.className = 'kagaku-controls';
+
+  controls.innerHTML = `
+    <button class="small-button" onclick="event.stopPropagation(); pauseCurrentAudio()">⏸️</button>
+    <button class="small-button" onclick="event.stopPropagation(); resumeCurrentAudio()">▶️</button>
+  `;
+
+  button.appendChild(controls);
 }
 
 function pauseCurrentAudio() {
