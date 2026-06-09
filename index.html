@@ -476,7 +476,8 @@ h2 {
   <div id="call-area"></div>
 
   <video id="call-video" class="video-player" controls playsinline style="display:none;">
-    <source src="call_001.mp4" type="video/mp4">
+    <video id="call-video" class="video-player" controls playsinline style="display:none;"></video>
+
   </video>
 
   <button class="small-button back" onclick="closeCall()">← もどる</button>
@@ -556,7 +557,9 @@ const homePhotos = [
   "home_01.jpg",
   "home_02.jpg",
   "home_03.jpg",
-  "home_04.jpg"
+  "home_04.jpg",
+  "home_05.jpg",
+  "home_06.jpg"
 ];
 
 const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
@@ -568,6 +571,15 @@ let callRing = null;
 function playCallVideo() {
   const area = document.getElementById("call-area");
   const video = document.getElementById("call-video");
+
+const callVideos = [
+  "call_001.mp4",
+  "call_002.mp4",
+  "call_003.mp4"
+];
+
+const randomCallVideo = callVideos[Math.floor(Math.random() * callVideos.length)];
+video.src = randomCallVideo;
 
   area.innerHTML = `
     <img src="call_screen.jpg" class="call-full-image">
