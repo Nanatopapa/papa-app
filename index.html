@@ -562,9 +562,6 @@ const homePhotos = [
 const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
 document.getElementById("home-photo").src = randomPhoto;
 
-loadBirthdayButtons();
-
-
 let callTimeout = null;
 let callRing = null;
 
@@ -808,6 +805,8 @@ function playBirthdayVideo(file, button) {
 
   button.insertAdjacentElement('afterend', area);
 }
+loadBirthdayButtons();
+
 
 </script>
 
