@@ -562,22 +562,34 @@ document.getElementById("home-photo").src = randomPhoto;
 
 let callTimeout = null;
 let callRing = null;
+let lastCallvideo = "";
 
 function playCallVideo() {
   const area = document.getElementById("call-area");
   const video = document.getElementById("call-video");
 
-const callVideos = [
-  "call_001.mp4",
-  "call_002.mp4",
-  "call_003.mp4",
-  "call_004.MP4",
-  "call_005.mp4",
-  "call_006.mp4"
-];
+  const callVideos = [
+    "call_001.mp4",
+    "call_002.mp4",
+    "call_003.mp4",
+    "call_004.MP4",
+    "call_005.mp4",
+    "call_006.mp4"
+  ];
 
-const randomCallVideo = callVideos[Math.floor(Math.random() * callVideos.length)];
-video.src = randomCallVideo;
+  let randomCallVideo;
+
+  do {
+    randomCallVideo =
+      callVideos[Math.floor(Math.random() * callVideos.length)];
+  } while (
+    callVideos.length > 1 &&
+    randomCallVideo === lastCallVideo
+  );
+
+  lastCallVideo = randomCallVideo;
+
+  video.src = randomCallVideo;
 
   area.innerHTML = `
     <img src="call_screen.jpg" class="call-full-image">
@@ -607,7 +619,6 @@ video.src = randomCallVideo;
     video.play();
   }, 5000);
 }
-
 function closeCall() {
   if (callTimeout) {
     clearTimeout(callTimeout);
