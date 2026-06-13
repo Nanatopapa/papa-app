@@ -202,6 +202,15 @@ h2 {
   color: #333;
 }
 
+.intro-player {
+  width: 280px;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 24px;
+  display: block;
+  margin: 20px auto;
+  background: black;
+}
 
 </style>
 </head>
@@ -592,7 +601,7 @@ function playCallVideo() {
 
   area.innerHTML = `
     <video id="intro-video"
-           class="video-player"
+           class="intro-player"
            autoplay
            playsinline>
       <source src="call_intro.mp4" type="video/mp4">
