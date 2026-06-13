@@ -561,7 +561,6 @@ const randomPhoto = homePhotos[Math.floor(Math.random() * homePhotos.length)];
 document.getElementById("home-photo").src = randomPhoto;
 
 let callTimeout = null;
-let callRing = null;
 let lastCallVideo = "";
 
 function playCallVideo() {
@@ -592,7 +591,12 @@ function playCallVideo() {
   video.src = randomCallVideo;
 
   area.innerHTML = `
-    <img src="call_screen.jpg" class="call-full-image">
+    <video id="intro-video"
+           class="video-player"
+           autoplay
+           playsinline>
+      <source src="call_intro.mp4" type="video/mp4">
+    </video>
   `;
 
   video.style.display = "none";
@@ -601,22 +605,14 @@ function playCallVideo() {
 
   showSection("call");
 
-  callRing = new Audio("call_ring.m4a");
-  callRing.volume = 0.005;
-  callRing.play();
-
   callTimeout = setTimeout(() => {
-    if (callRing) {
-      callRing.pause();
-      callRing.currentTime = 0;
-      callRing = null;
-    }
 
     area.innerHTML = "";
 
     video.style.display = "block";
     video.currentTime = 0;
     video.play();
+
   }, 5000);
 }
 function closeCall() {
@@ -625,12 +621,7 @@ function closeCall() {
     callTimeout = null;
   }
 
-  if (callRing) {
-    callRing.pause();
-    callRing.currentTime = 0;
-    callRing = null;
-  }
-
+ 
   const video = document.getElementById("call-video");
   video.pause();
   video.currentTime = 0;
